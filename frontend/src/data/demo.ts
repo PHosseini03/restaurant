@@ -74,8 +74,8 @@ export const DEMO_HOURS: HoursInfo = {
     { day: "Samstag", open: "17:00", close: "23:00" },
     { day: "Sonntag", open: "12:00", close: "21:00" },
   ],
-  address: "Glutstraße 88, 20359 Hamburg",
-  phone: "+49 40 555 0187",
+  address: "Ihre Adresse hier",
+  phone: "Ihre Telefonnummer hier",
 };
 
 export const CONTACT = { phone: DEMO_HOURS.phone, email: "tisch@emberandoak.example", address: DEMO_HOURS.address };

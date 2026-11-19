@@ -128,9 +128,9 @@ export default function Reserve() {
                 </SelectField>
                 <SlotPicker date={values.date} value={values.time} onChange={(t) => update("time", t)} error={errors.time} />
                 <TextField label="Vollständiger Name" name="name" autoComplete="name" value={values.name} onChange={set("name")} error={errors.name} maxLength={80} placeholder="Anna Schneider" />
-                <TextField label="Telefon" name="phone" type="tel" autoComplete="tel" value={values.phone} onChange={set("phone")} error={errors.phone} maxLength={20} placeholder="+49 40 555 0100" />
+                <TextField label="Telefon" name="phone" type="tel" autoComplete="tel" value={values.phone} onChange={set("phone")} error={errors.phone} maxLength={20} placeholder="Ihre Telefonnummer" />
                 <div className="sm:col-span-2">
-                  <TextField label="E-Mail" name="email" type="email" autoComplete="email" value={values.email} onChange={set("email")} error={errors.email} maxLength={120} placeholder="ihre@email.de" />
+                  <TextField label="E-Mail" name="email" type="email" autoComplete="email" value={values.email} onChange={set("email")} error={errors.email} maxLength={120} placeholder="ihre@email.example" />
                 </div>
                 <div className="sm:col-span-2">
                   <SelectField label="Anlass" name="occasion" value={values.occasion} onChange={set("occasion")}>

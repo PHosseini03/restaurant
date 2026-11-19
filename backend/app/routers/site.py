@@ -49,7 +49,7 @@ def list_specials():
 
 @router.get("/hours")
 def hours():
-    return ok({"weekly": weekly_hours(), "address": "Glutstraße 88, 20359 Hamburg", "phone": "+49 40 555 0187"})
+    return ok({"weekly": weekly_hours(), "address": "Ihre Adresse hier", "phone": "Ihre Telefonnummer hier"})
 
 
 @router.get("/availability")
