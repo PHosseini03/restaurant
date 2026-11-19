@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --color-ink: #120f0d;
+  --color-coal: #1c1714;
+  --color-ash: #2a231e;
+  --color-line: rgb(243 233 220 / 0.1);
+  --color-ember: #e8692c;
+  --color-flame: #f59e5b;
+  --color-cream: #f3e9dc;
+  --color-smoke: #b3a493;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-ink font-sans text-cream antialiased; overflow-x: hidden; }
+  h1, h2, h3, h4 { @apply font-display font-medium tracking-tight; }
+  :focus-visible { outline: 2px solid var(--color-flame); outline-offset: 3px; border-radius: 4px; }
+  ::selection { background: rgb(232 105 44 / 0.4); }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .section { @apply py-20 sm:py-28; }
+  .eyebrow { @apply inline-flex items-center gap-3 text-xs font-semibold tracking-[0.3em] text-flame uppercase; }
+  .eyebrow::before { content: ""; @apply h-px w-8 bg-flame; }
+  .heading { @apply text-4xl text-cream sm:text-5xl lg:text-6xl; }
+  .lead { @apply text-base leading-relaxed text-smoke sm:text-lg; }
+  .btn, .btn-primary, .btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded-sm px-7 py-3.5 text-sm font-semibold tracking-wide uppercase transition duration-200 disabled:cursor-not-allowed disabled:opacity-60; }
+  .btn-primary { @apply bg-ember text-ink hover:bg-flame active:scale-[0.98]; }
+  .btn-ghost { @apply border border-cream/30 text-cream hover:border-cream hover:bg-cream/5; }
+  .card { @apply border border-line bg-coal; }
+  .field { @apply flex flex-col gap-1.5; }
+  .field-label { @apply text-xs font-semibold tracking-wider text-smoke uppercase; }
+  .field-input { @apply w-full rounded-sm border border-line bg-ink px-4 py-3 text-sm text-cream placeholder:text-smoke/50 transition outline-none focus:border-ember focus:ring-1 focus:ring-ember aria-[invalid=true]:border-red-400; }
+  .field-input option { @apply bg-coal text-cream; }
+  .field-error { @apply text-xs text-red-300; }
+  .field-hint { @apply text-xs text-smoke/70; }
+  .toast { @apply border; }
+  .toast-success { @apply border-ember/40 bg-coal text-cream; }
+  .toast-error { @apply border-red-400/40 bg-red-950 text-red-100; }
+  .chip { @apply rounded-full border px-4 py-2 text-sm font-medium transition; }
+  .chip-on { @apply border-ember bg-ember text-ink; }
+  .chip-off { @apply border-line text-smoke hover:border-cream/40 hover:text-cream; }
+}
+
+.grain {
+  background-image: radial-gradient(rgb(243 233 220 / 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+@keyframes flicker { 0%, 100% { opacity: 0.55; } 45% { opacity: 0.8; } 60% { opacity: 0.6; } }
+.animate-flicker { animation: flicker 5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
